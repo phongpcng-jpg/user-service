@@ -59,7 +59,7 @@ class UserControllerTest {
     @Test
     void create_invalidRequest_returns400WithFieldErrors() throws Exception {
         mockMvc.perform(post("/api/users").contentType(MediaType.APPLICATION_JSON)
-                        .content("""{"fullname":"","username":"x","email":"invalid","phone":"abc"}"""))
+                        .content("{\"fullname\":\"\",\"username\":\"x\",\"email\":\"invalid\",\"phone\":\"abc\"}"))
                 .andExpect(status().isBadRequest()).andExpect(jsonPath("$.errors").exists());
     }
 
